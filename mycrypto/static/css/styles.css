@@ -5,10 +5,7 @@ header {
     line-height: 50px;
     padding-left: 10px;
     font-size: large;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-
+    border-bottom: 2px solid black;
 }
 
 footer {
@@ -16,11 +13,22 @@ footer {
     color: black;
     padding-left: 10px;
     font-size: small;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
+    border-top: 2px solid black;
 }
 
 .navbar {
     padding: 10px;
+}
+
+.navbar a:link,
+.navbar a:hover,
+.navbar a:active,
+.navbar a:focus {
+    color: black;
+}
+
+.body {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
 }
