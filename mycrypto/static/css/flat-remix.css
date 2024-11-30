@@ -1,26 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder, textarea::placeholder {
     opacity: 1;
     transition: opacity .2s;
     color: inherit;
 }
 
-input:focus::placeholder,
-textarea:focus::placeholder {
+input:focus::placeholder, textarea:focus::placeholder {
     opacity: .2;
 }
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     opacity: 1;
     transition: opacity .2s;
     color: inherit;
 }
 
-input:focus:-ms-input-placeholder,
-textarea:focus:-ms-input-placeholder {
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
     opacity: .2;
 }
 
@@ -70,20 +66,14 @@ body {
     -ms-user-select: none;
 }
 
-a:link,
-a:visited,
-a:active,
-a {
+a:link, a:visited, a:active, a {
     color: #367bf0;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
 }
 
-a:link:hover,
-a:visited:hover,
-a:active:hover,
-a:hover {
+a:link:hover, a:visited:hover, a:active:hover, a:hover {
     text-decoration: underline
 }
 
@@ -93,14 +83,7 @@ label {
     padding: .56em 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 1.5em;
-}
+h1, h2, h3, h4, h5, h6 { line-height: 1.5em; }
 
 h1 {
     font-size: 4em;
@@ -138,11 +121,7 @@ h6 {
     font-weight: bold;
 }
 
-section,
-article,
-.section,
-.article,
-.paper {
+section, article, .section, .article, .paper {
     line-height: 2em;
     word-wrap: break-word;
     word-break: normal;
@@ -156,25 +135,21 @@ hr {
     border-radius: 4px;
 }
 
-code,
-pre {
+code, pre {
     padding: 5px 10px;
     border-radius: 4px;
     overflow: auto;
     box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
 }
 
-code {
-    background: #E6E6E6;
-}
+code { background: #E6E6E6; }
 
 pre {
     background: white;
     margin: 40px 0;
 }
 
-code,
-pre {
+code, pre {
     font-size: 12px;
     font-family: monospace;
     line-height: 2em;
@@ -196,8 +171,7 @@ blockquote {
 }
 
 input:not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]),
-textarea,
-select {
+textarea, select {
     border: 2px solid #000;
     background: #FFF;
     color: #000;
@@ -216,8 +190,7 @@ select {
     -ms-user-select: text;
 }
 
-input[type=checkbox],
-input[type=radio] {
+input[type=checkbox], input[type=radio] {
     font-size: 1em;
     border: .125em solid #000;
     background: #FFF;
@@ -231,18 +204,15 @@ input[type=radio] {
     transition: background-color .2s, box-shadow .2s;
 }
 
-input[type=checkbox]:checked,
-input[type=radio]:checked {
+input[type=checkbox]:checked, input[type=radio]:checked {
     background: #367bf0;
 }
 
-label:hover>input[type=checkbox]:checked,
-label:hover>input[type=radio]:checked {
+label:hover > input[type=checkbox]:checked, label:hover > input[type=radio]:checked {
     box-shadow: inset 0 0 0 0.1875em #FFF;
 }
 
-label:hover>input[type=checkbox]:not(:checked),
-label:hover>input[type=radio]:not(:checked) {
+label:hover > input[type=checkbox]:not(:checked), label:hover > input[type=radio]:not(:checked) {
     background: #b8174c;
 }
 
@@ -292,7 +262,7 @@ label.checktext input:not(:checked)+span:hover {
     transform: scale(1.3);
 }
 
-label.checktext input:checked+span {
+label.checktext input:checked + span {
     color: #000;
     font-weight: bold;
     font-size: 2.5em;
@@ -318,7 +288,7 @@ select {
     cursor: pointer;
 }
 
-.onoffswitch>span {
+.onoffswitch > span {
     height: 45px;
     text-align: left;
     position: relative;
@@ -332,7 +302,7 @@ select {
     transition: border-color 0.2s;
 }
 
-.onoffswitch>span::after {
+.onoffswitch > span::after {
     content: ' ';
     position: absolute;
     bottom: 0;
@@ -357,8 +327,7 @@ select {
     display: block;
 }
 
-.onoffswitch span span::before,
-.onoffswitch span span::after {
+.onoffswitch span span::before, .onoffswitch span span::after {
     color: #FFF;
     float: left;
     width: 50%;
@@ -382,15 +351,15 @@ select {
     text-align: right;
 }
 
-.onoffswitch input:checked+span span {
+.onoffswitch input:checked + span span {
     transform: translateX(0);
 }
 
-.onoffswitch input:checked+span::after {
+.onoffswitch input:checked + span::after {
     transform: translateX(50px);
 }
 
-.onoffswitch input:checked+span {
+.onoffswitch input:checked + span {
     background: #367bf0;
     border-color: #2656a8;
 }
@@ -398,12 +367,9 @@ select {
 button,
 input[type=submit],
 input[type=reset],
-.blue-button,
-input.blue-button,
-.red-button,
-input.red-button,
-.green-button,
-input.green-button {
+.blue-button, input.blue-button,
+.red-button, input.red-button,
+.green-button, input.green-button {
     border-radius: 4px;
     font-weight: bold;
     color: #FFF;
@@ -439,43 +405,25 @@ input.green-button {
     transition: text-shadow .2s .2s, background .2s .2s, transform .2s, color .2s .2s, box-shadow .2s;
 }
 
-.rounded-button:hover {
-    transform: scale(1.04);
-}
+.rounded-button:hover { transform: scale(1.04); }
 
 button:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
-.blue-button:hover,
-input.blue-button:hover,
-.red-button:hover,
-input.red-button:hover,
-.green-button:hover,
-input.green-button:hover {
+.blue-button:hover, input.blue-button:hover,
+.red-button:hover, input.red-button:hover,
+.green-button:hover, input.green-button:hover {
     transform: scale(1.03);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
-button:active,
-button.active,
-input[type=submit]:active,
-input[type=submit].active,
-input[type=reset]:active,
-input[type=reset].active,
-.blue-button:active,
-input.blue-button:active,
-.blue-button.active,
-input.blue-button.active,
-.red-button:active,
-input.red-button:active,
-.red-button.active,
-input.red-button.active,
-.green-button:active,
-input.green-button:active,
-.green-button.active,
-input.green-button.active,
-.rounded-button:active,
-.rounded-button.active {
+button:active, button.active,
+input[type=submit]:active, input[type=submit].active,
+input[type=reset]:active, input[type=reset].active,
+.blue-button:active, input.blue-button:active, .blue-button.active, input.blue-button.active,
+.red-button:active, input.red-button:active, .red-button.active, input.red-button.active,
+.green-button:active, input.green-button:active, .green-button.active, input.green-button.active,
+.rounded-button:active, .rounded-button.active {
     box-shadow: none;
     border-color: #000;
     color: #000;
@@ -484,25 +432,19 @@ input.green-button.active,
     transition: transform .2s, box-shadow .2s;
 }
 
-.rounded-button:active,
-.rounded-button.active {
-    box-shadow: 0 0 10px rgba(0, 0, 0, .6);
-}
+.rounded-button:active, .rounded-button.active { box-shadow: 0 0 10px rgba(0, 0, 0, .6); }
 
-.blue-button,
-input.blue-button {
+.blue-button, input.blue-button {
     background: #367bf0;
     border-color: #2656a8;
 }
 
-.red-button,
-input.red-button {
+.red-button, input.red-button {
     background: #b8174c;
     border-color: #811035;
 }
 
-.green-button,
-input.green-button {
+.green-button, input.green-button {
     background: #19a187;
     border-color: #12715f;
 }

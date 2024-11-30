@@ -1,0 +1,26 @@
+header {
+    background-color: rgb(180, 180, 180);
+    color: black;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    font-size: large;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+footer {
+    background-color: rgb(180, 180, 180);
+    color: black;
+    padding-left: 10px;
+    font-size: small;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.navbar {
+    padding: 10px;
+}
