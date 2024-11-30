@@ -4,11 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myCRYPTO</title>
+    <title>myCRYPTO - {% block head_title %}myCRYPTO App{% endblock head_title %}</title>
     <link rel="stylesheet" href="/static/css/flat-remix.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
+    {% include 'components/header.html' %}
+    {% include 'components/navbar.html' %}
+
+    <main>
+        {% block contenido%}
+        {% endblock contenido %}
+    </main>
+
+    {% include 'components/footer.html' %}
 
 </body>
 
