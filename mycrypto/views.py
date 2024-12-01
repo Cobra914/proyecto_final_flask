@@ -1,8 +1,11 @@
 from flask import render_template
 
+from mycrypto.models import ListaMovimientos
+
 from . import app
 
 
 @app.route('/')
 def home():
-    return render_template('inicio.html')
+    lista = ListaMovimientos()
+    return render_template('inicio.html', movs=lista.movimientos)

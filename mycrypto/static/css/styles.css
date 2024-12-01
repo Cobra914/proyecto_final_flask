@@ -32,3 +32,10 @@ footer {
     border-style: solid;
     border-color: black;
 }
+
+.paper {
+    padding: -5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(180, 180, 180);
+}

@@ -10,6 +10,67 @@
 
 {% block contenido %}
 <table class="paper tabla">
+    <tr class="fila">
+        <th class="cabecera fecha">Fecha</th>
+        <th class="cabecera hora">Hora</th>
+        <th class="cabecera de_moneda">De</th>
+        <th class="cabecera de_cantidad">Cantidad</th>
+        <th class="cabecera a_moneda">A</th>
+        <th class="cabecera a_cantidad">Cantidad</th>
+        <th class="cabecera precio_unitario">Precio Unitario</th>
+    </tr>
+    {% if movs %}
+    {% for m in movs %}
+    <tr class="fila">
+        <td class="dato">
+            {% if m.fecha %}
+            {{ m.fecha }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        <td class="dato">
+            {% if m.hora %}
+            {{ m.hora }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        <td class="dato">
+            {% if m.from_currency %}
+            {{ m.from_currency }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        </td>
+        <td class="dato">
+            {% if m.form_quantity %}
+            {{ m.form_quantity }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        </td>
+        <td class="dato">
+            {% if m.to_currency %}
+            {{ m.to_currency }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        </td>
+        <td class="dato">
+            {% if m.to_quantity %}
+            {{ m.to_quantity }}
+            {% else %}
+            ---
+            {% endif %}
+        </td>
+        </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
 
 </table>
 {% endblock contenido %}
