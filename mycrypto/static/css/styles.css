@@ -59,3 +59,9 @@ footer {
 .subtitulo {
     text-align: center;
 }
+
+.menu-from {}
+
+.menu-to {
+    padding-left: 10px;
+}

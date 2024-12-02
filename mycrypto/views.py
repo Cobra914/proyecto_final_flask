@@ -13,7 +13,7 @@ def home():
 
 @app.route('/purchase')
 def purchase():
-    return 'aca las compras'
+    return render_template('compra.html')
 
 
 @app.route('/status')

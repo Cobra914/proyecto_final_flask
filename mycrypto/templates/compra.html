@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ super() }}: Compra
+{% endblock head_title %}
+
+{% block page_title %}
+<h1 class="subtitulo">COMPRA DE CRIPTOS</h1>
+{% endblock page_title %}
+
+{% block contenido %}
+<label class="menu-from" for="menu-from">From:</label>
+<select id="menu-from">
+    <option value="opcion1">Opción 1</option>
+    <option value="opcion2">Opción 2</option>
+    <option value="opcion3">Opción 3</option>
+    <option value="opcion4">Opción 4</option>
+</select>
+
+<label class="menu-to" for="menu-to">To:</label>
+<select id="menu-to">
+    <option value="opcion1">Opción 1</option>
+    <option value="opcion2">Opción 2</option>
+    <option value="opcion3">Opción 3</option>
+    <option value="opcion4">Opción 4</option>
+</select>
+
+<div class="campo-compra">
+    <label for="cantidad-usuario">Cantidad:</label>
+    <input type="number">
+</div>
+
+<div class="campo-compra">
+    <label for="equivale">Equivale:</label>
+</div>
+
+<div class="campo-compra">
+    <label for="precio-unitario">Precio unitario:</label>
+</div>
+
+{% endblock contenido %}
