@@ -9,3 +9,13 @@ from . import app
 def home():
     lista = ListaMovimientos()
     return render_template('inicio.html', movs=lista.movimientos)
+
+
+@app.route('/purchase')
+def purchase():
+    return 'aca las compras'
+
+
+@app.route('/status')
+def status():
+    return 'estado de cuenta'
