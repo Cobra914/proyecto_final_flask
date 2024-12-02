@@ -8,7 +8,4 @@ from . import app
 @app.route('/')
 def home():
     lista = ListaMovimientos()
-    if lista.movimientos != []:
-        return render_template('inicio.html', movs=lista.movimientos)
-    else:
-        return render_template('sin_movimientos.html')
+    return render_template('inicio.html', movs=lista.movimientos)
