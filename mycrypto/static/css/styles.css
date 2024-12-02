@@ -34,8 +34,15 @@ footer {
 }
 
 .paper {
-    padding: -5px;
+    padding: 5px;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(180, 180, 180);
+}
+
+.cabecera {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(180, 180, 180);
+    padding: 5px;
 }

@@ -22,55 +22,58 @@
     {% if movs %}
     {% for m in movs %}
     <tr class="fila">
-        <td class="dato">
-            {% if m.fecha %}
-            {{ m.fecha }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        <td class="dato">
-            {% if m.hora %}
-            {{ m.hora }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        <td class="dato">
-            {% if m.from_currency %}
-            {{ m.from_currency }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        </td>
-        <td class="dato">
-            {% if m.form_quantity %}
-            {{ m.form_quantity }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        </td>
-        <td class="dato">
-            {% if m.to_currency %}
-            {{ m.to_currency }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        </td>
-        <td class="dato">
-            {% if m.to_quantity %}
-            {{ m.to_quantity }}
-            {% else %}
-            ---
-            {% endif %}
-        </td>
-        </td>
+    <tr></tr>
+    <td class="dato">
+        {% if m.fecha %}
+        {{ m.fecha }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    <td class="dato">
+        {% if m.hora %}
+        {{ m.hora }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    <td class="dato">
+        {% if m.from_currency %}
+        {{ m.from_currency }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    </td>
+    <td class="dato">
+        {% if m.form_quantity %}
+        {{ m.form_quantity }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    </td>
+    <td class="dato">
+        {% if m.to_currency %}
+        {{ m.to_currency }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    </td>
+    <td class="dato">
+        {% if m.to_quantity %}
+        {{ m.to_quantity }}
+        {% else %}
+        ---
+        {% endif %}
+    </td>
+    </td>
+    <td class="dato">
+        {{ m.obtener_unit_price }} {{ m.from_currency }}
+    </td>
     </tr>
     {% endfor %}
     {% endif %}
-
 </table>
 {% endblock contenido %}

@@ -52,6 +52,7 @@ class Movimiento:
         form_quantity = dict_mov.get('form_quantity', None)
         to_currency = dict_mov.get('to_currency', '')
         to_quantity = dict_mov.get('to_quantity', None)
+        unit_price = dict_mov.get('unit_price')
 
         self.id = dict_mov.get('id', None)
 
@@ -80,6 +81,14 @@ class Movimiento:
         self.form_quantity = form_quantity
         self.to_currency = to_currency
         self.to_quantity = to_quantity
+        self.unit_price = unit_price
+
+    @property
+    def obtener_unit_price(self):
+        n1 = float(self.form_quantity)
+        n2 = float(self.to_quantity)
+        resultado = n1/n2
+        return round(resultado, 4)
 
 
 class ListaMovimientos:
@@ -92,7 +101,7 @@ class ListaMovimientos:
 
     def cargar_movimiento(self):
         db = DBManager(RUTA_DB)
-        sql = 'SELECT id, date, time, from_currency, form_quantity, to_currency, to_quantity FROM movimientos'
+        sql = 'SELECT id, date, time, from_currency, form_quantity, to_currency, to_quantity, unit_price FROM movimientos'
         datos = db.consultarSQL(sql)
 
         self.movimientos = []
