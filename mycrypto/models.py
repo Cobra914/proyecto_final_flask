@@ -44,6 +44,8 @@ class Movimiento:
 
     def __init__(self, dict_mov):
 
+        lista_monedas = ['EUR', 'BTC', 'ETH', 'USDT',
+                         'ADA', 'SOL', 'XRP', 'DOT', 'DOGE', 'SHIB']
         self.errores = []
 
         fecha = dict_mov.get('date', '')
@@ -56,31 +58,78 @@ class Movimiento:
 
         self.id = dict_mov.get('id', None)
 
+        # Validación hora
         try:
             self.fecha = date.fromisoformat(fecha)
         except ValueError:
             self.fecha = None
-            msj = f'La fecha {fecha} no es una fecha ISO 8601 válida'
+            msj = f'La fecha {fecha} no es una fecha ISO 8601 válida.'
             self.errores.append(msj)
         except TypeError:
             self.fecha = None
-            msj = f'La fecha {fecha} no es una cadena de texto'
+            msj = f'La fecha {fecha} no es una cadena de texto.'
             self.errores.append(msj)
         except:
             self.fecha = None
-            msj = f'Error desconocido con la fecha'
+            msj = f'Error desconocido con la fecha.'
             self.errores.append(msj)
 
+        # Validación fecha
         try:
             self.hora = time.fromisoformat(hora)
         except ValueError:
             self.hora = None
-            msj = f'La hora {hora} no es de tipo ISO válida'
+            msj = f'La hora {hora} no es de tipo ISO válida.'
 
-        self.from_currency = from_currency
-        self.form_quantity = form_quantity
-        self.to_currency = to_currency
-        self.to_quantity = to_quantity
+        # Validación from_currency
+        if from_currency not in lista_monedas:
+            msj = f'La moneda {from_currency} no es una moneda válida.'
+            self.errores.append(msj)
+            raise ValueError(msj)
+        else:
+            self.from_currency = from_currency
+
+        # Validación form_quantity
+        try:
+            valor = float(form_quantity)
+            if valor > 0:
+                self.form_quantity = valor
+            else:
+                self.form_quantity = 0
+                msj = f'La cantidad debe ser mayor que cero.'
+                self.errores.append(msj)
+        except ValueError:
+            self.form_quantity = 0
+            msj = f'La cantidad debe ser un número decimal.'
+            self.errores.append(msj)
+
+        # Validación to_currency
+        if to_currency not in lista_monedas:
+            msj = f'La moneda {to_currency} no es una moneda válida.'
+            self.errores.append(msj)
+            raise ValueError(msj)
+        else:
+            self.to_currency = to_currency
+
+        # Validación to_quantity
+        try:
+            valor = float(to_quantity)
+            if valor > 0:
+                self.to_quantity = valor
+            else:
+                # TODO Se rompe al ingresar un numero negativo
+                self.to_quantity = 0
+                msj = f'La cantidad debe ser mayor que cero.'
+                self.errores.append(msj)
+        except ValueError:
+            self.to_quantity = 0
+            msj = f'La cantidad debe ser un número decimal.'
+            self.errores.append(msj)
+
+        # self.from_currency = from_currency
+        # self.form_quantity = form_quantity
+        # self.to_currency = to_currency
+        # self.to_quantity = to_quantity
         self.unit_price = unit_price
 
     @property
