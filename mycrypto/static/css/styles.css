@@ -31,6 +31,7 @@ footer {
 }
 
 .paper {
+    border-collapse: collapse;
     width: 100%;
     height: 100%;
     padding: 5px;
@@ -40,6 +41,7 @@ footer {
 }
 
 .cabecera {
+    border-collapse: collapse;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(180, 180, 180);
@@ -47,6 +49,8 @@ footer {
 }
 
 .dato {
+    border-collapse: collapse;
+    border-right: 2px solid rgb(180, 180, 180);
     text-align: center;
 }
 
@@ -58,10 +62,5 @@ footer {
 
 .subtitulo {
     text-align: center;
-}
-
-.menu-from {}
-
-.menu-to {
-    padding-left: 10px;
+    margin-bottom: 0px;
 }
