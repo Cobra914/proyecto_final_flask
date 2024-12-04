@@ -38,6 +38,7 @@ footer {
     border-width: 2px;
     border-style: solid;
     border-color: rgb(180, 180, 180);
+    margin-top: 0px;
 }
 
 .cabecera {
@@ -63,6 +64,9 @@ footer {
 .subtitulo {
     text-align: center;
     margin-bottom: 0px;
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
 }
 
 .boton {
@@ -76,4 +80,30 @@ footer {
 .boton .boton-edit {
     color: black;
     background-color: white;
+}
+
+.boton-volver {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.boton-volver .texto-volver {
+    color: black;
+    background-color: white;
+}
+
+.container-estado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-estado .container-linea {
+    min-width: 100px;
+
+    border-width: 12px;
+    border-style: solid;
+    background-color: white;
+    border-bottom: 2px solid black;
 }

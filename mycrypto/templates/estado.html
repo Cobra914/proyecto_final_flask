@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ super() }}: Estado
+{% endblock head_title %}
+
+{% block page_title %}
+<h1 class="subtitulo">ESTADO DE LA INVERSION</h1>
+{% endblock page_title %}
+
+{% block contenido %}
+<div class="container-estado">
+    <label for="invertido">Invertido:</label>
+    <span class="container-linea"></span>
+</div>
+<div class="container-estado">
+    <label for="valor-actual">Valor actual:</label>
+    <span class="container-linea"></span>
+</div>
+
+<div class="boton-volver">
+    <a href="/" class="texto-volver">
+        <button class="texto-volver" type="submit">
+            Volver
+        </button>
+    </a>
+</div>
+{% endblock contenido %}

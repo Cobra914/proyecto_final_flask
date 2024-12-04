@@ -18,4 +18,4 @@ def purchase():
 
 @app.route('/status')
 def status():
-    return 'estado de cuenta'
+    return render_template('estado.html')
