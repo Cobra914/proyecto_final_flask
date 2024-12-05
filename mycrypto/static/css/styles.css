@@ -93,17 +93,17 @@ footer {
     background-color: white;
 }
 
-.container-estado {
+.fila-compra {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
 }
 
-.container-estado .container-linea {
-    min-width: 100px;
+.cuadro {
+    flex: 1;
+    text-align: center;
+}
 
-    border-width: 12px;
-    border-style: solid;
-    background-color: white;
-    border-bottom: 2px solid black;
+.cuadro-q {
+    flex: 2;
+    text-align: center;
 }

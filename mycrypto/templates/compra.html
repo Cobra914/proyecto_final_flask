@@ -9,35 +9,57 @@
 {% endblock page_title %}
 
 {% block contenido %}
-<label class="container" for="menu-from">From:</label>
-<select class="container" id="menu-from">
-    <option value="opcion1">Opción 1</option>
-    <option value="opcion2">Opción 2</option>
-    <option value="opcion3">Opción 3</option>
-    <option value="opcion4">Opción 4</option>
-</select>
-
-<label class="container" for="menu-to">To:</label>
-<select class="container" id="menu-to">
-    <option value="opcion1">Opción 1</option>
-    <option value="opcion2">Opción 2</option>
-    <option value="opcion3">Opción 3</option>
-    <option value="opcion4">Opción 4</option>
-</select>
-
-<div class="container">
-    <label for="cantidad-usuario">Cantidad:</label>
-    <input type="number">
+<div>
+    <div class="fila-compra">
+        <div class="cuadro">
+            <label for="menu-from">De:</label>
+            <select name="menu-from" id="menu-from">
+                <option value="EUR">EUR</option>
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+                <option value="USDT">USDT</option>
+                <option value="ADA">ADA</option>
+                <option value="SOL">SOL</option>
+                <option value="XRP">XRP</option>
+                <option value="DOT">DOT</option>
+                <option value="DOGE">DOGE</option>
+                <option value="SHIB">SHIB</option>
+            </select>
+        </div>
+        <div class="cuadro cuadro2">
+            <label for="menu-to">A:</label>
+            <select name="menu-to" id="menu-to">
+                <option value="EUR">EUR</option>
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+                <option value="USDT">USDT</option>
+                <option value="ADA">ADA</option>
+                <option value="SOL">SOL</option>
+                <option value="XRP">XRP</option>
+                <option value="DOT">DOT</option>
+                <option value="DOGE">DOGE</option>
+                <option value="SHIB">SHIB</option>
+            </select>
+        </div>
+    </div>
+    <div class="fila-compra">
+        <div class="cuadro-q">
+            <label for="cantidad-usuario">C:</label>
+            <input type="number">
+        </div>
+        <div class="cuadro-q">
+            <button></button>
+        </div>
+        <div class="cuadro-q">
+            <label for="cantidad-cambio">C:</label>
+            <span></span>
+        </div>
+    </div>
+    <div class="fila-compra">
+        <label for="precio-unitario">P.U:</label>
+    </div>
+    <div>
+        <button></button>
+    </div>
 </div>
-
-<div class="container">
-    <label for="equivale">Equivale:</label>
-    <span class="container-linea"></span>
-</div>
-
-<div class="container">
-    <label for="precio-unitario">Precio unitario:</label>
-    <span class="container-linea"></span>
-</div>
-
 {% endblock contenido %}

@@ -1,8 +1,18 @@
 from datetime import date, time
 
+import requests
+
 import sqlite3
 
 RUTA_DB = 'mycrypto/data/movements.db'
+
+APIKEY = '7418c736-092b-42a6-9272-e626a5885fd1'
+SERVER = 'https://rest.coinapi.io'
+ENDPOINT = '/v1/exchangerate'
+RUTA_API = SERVER + ENDPOINT
+HEADERS = {
+    'X-CoinAPI-Key': APIKEY
+}
 
 
 class DBManager:
@@ -157,3 +167,27 @@ class ListaMovimientos:
         for dato in datos:
             mov = Movimiento(dato)
             self.movimientos.append(mov)
+
+
+class CoinApi:
+
+    def __init__(self, ruta):
+        self.ruta = ruta
+
+    def peticion_api(self, from_currency, to_currency, form_quantity):
+        '''
+        Consulta CoinApi para obtener "time" y "rate" sobre las monedas pedidas. 
+        '''
+        url = self.ruta + '/' + from_currency + '/' + to_currency
+
+        respuesta = requests.get(url, headers=HEADERS)
+
+        if respuesta.status_code == 200:
+            datos = respuesta.json()
+
+            tasa = datos.get('rate', 0)
+            # hora =
+        else:
+            pass
+
+        cantidad_en_ = form_quantity*tasa
