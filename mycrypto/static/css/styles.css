@@ -96,6 +96,7 @@ footer {
 .fila-compra {
     display: flex;
     flex-direction: row;
+    padding-top: 50px;
 }
 
 .cuadro {
@@ -103,7 +104,29 @@ footer {
     text-align: center;
 }
 
+.menu-from {
+    width: 200px;
+}
+
+.menu-to {
+    width: 200px;
+}
+
 .cuadro-q {
     flex: 2;
     text-align: center;
+}
+
+.cuadro-pu {
+    flex: 2;
+    text-align: center;
+}
+
+.cuadro-check {
+    flex: 2;
+    text-align: center;
+}
+
+.pad {
+    padding-bottom: 70px;
 }

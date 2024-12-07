@@ -13,7 +13,7 @@
     <div class="fila-compra">
         <div class="cuadro">
             <label for="menu-from">De:</label>
-            <select name="menu-from" id="menu-from">
+            <select class="menu-from" name="menu-from" id="menu-from">
                 <option value="EUR">EUR</option>
                 <option value="BTC">BTC</option>
                 <option value="ETH">ETH</option>
@@ -28,7 +28,7 @@
         </div>
         <div class="cuadro cuadro2">
             <label for="menu-to">A:</label>
-            <select name="menu-to" id="menu-to">
+            <select class="menu-to" name="menu-to" id="menu-to">
                 <option value="EUR">EUR</option>
                 <option value="BTC">BTC</option>
                 <option value="ETH">ETH</option>
@@ -46,20 +46,28 @@
         <div class="cuadro-q">
             <label for="cantidad-usuario">C:</label>
             <input type="number">
-        </div>
-        <div class="cuadro-q">
-            <button></button>
+            <a href="">
+                <img src="/static/icons/calculadora.png" alt="calculadora" width="40" height="40">
+            </a>
         </div>
         <div class="cuadro-q">
             <label for="cantidad-cambio">C:</label>
-            <span></span>
+            <span class="span-linea"></span>
         </div>
     </div>
     <div class="fila-compra">
-        <label for="precio-unitario">P.U:</label>
+        <div class="cuadro-pu"></div>
+        <div class="cuadro-pu">
+            <label for="precio-unitario">P.U:</label>
+        </div>
     </div>
-    <div>
-        <button></button>
+    <div class="fila-compra">
+        <div class="cuadro-check pad"></div>
+        <div class="cuadro-check pad">
+            <a href="">
+                <img src="/static/icons/cheque.png" alt="cheque" width="40" height="40">
+            </a>
+        </div>
     </div>
 </div>
 {% endblock contenido %}
