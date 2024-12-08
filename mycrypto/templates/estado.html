@@ -5,24 +5,27 @@
 {% endblock head_title %}
 
 {% block page_title %}
-<h1 class="subtitulo">ESTADO DE LA INVERSION</h1>
+<h1 class="subtitulo estado">ESTADO DE LA INVERSION</h1>
 {% endblock page_title %}
 
 {% block contenido %}
 <div class="container-estado">
     <label for="invertido">Invertido:</label>
-    <span class="container-linea"></span>
+    <span></span>
 </div>
-<div class="container-estado">
+<div class="container-estado va">
     <label for="valor-actual">Valor actual:</label>
-    <span class="container-linea"></span>
+    <span></span>
 </div>
 
-<div class="boton-volver">
-    <a href="/" class="texto-volver">
-        <button class="texto-volver" type="submit">
-            Volver
-        </button>
-    </a>
+<div class="boton-volver bv">
+    <div class="cuadro-boton"></div>
+    <div class="cuadro-boton">
+        <a href="/" class="texto-volver">
+            <button class="texto-volver" type="submit">
+                Volver
+            </button>
+        </a>
+    </div>
 </div>
 {% endblock contenido %}

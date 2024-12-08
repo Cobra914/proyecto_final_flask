@@ -69,6 +69,10 @@ footer {
     color: black;
 }
 
+.estado {
+    padding-bottom: 40px;
+}
+
 .boton {
     display: flex;
     align-items: center;
@@ -78,17 +82,6 @@ footer {
 }
 
 .boton .boton-edit {
-    color: black;
-    background-color: white;
-}
-
-.boton-volver {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.boton-volver .texto-volver {
     color: black;
     background-color: white;
 }
@@ -129,4 +122,33 @@ footer {
 
 .pad {
     padding-bottom: 70px;
+}
+
+.boton-volver {
+    display: flex;
+    flex-direction: row;
+}
+
+.cuadro-boton {
+    flex: 2;
+    padding-left: 200px;
+}
+
+.texto-volver {
+    color: black;
+    background-color: white;
+}
+
+.bv {
+    padding-bottom: 80px;
+}
+
+.container-estado {
+    text-align: center;
+}
+
+
+.va {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
