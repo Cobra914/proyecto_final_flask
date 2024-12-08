@@ -1,4 +1,4 @@
-from datetime import date, time
+from datetime import datetime, date, time
 
 import requests
 
@@ -9,7 +9,6 @@ RUTA_DB = 'mycrypto/data/movements.db'
 APIKEY = '7418c736-092b-42a6-9272-e626a5885fd1'
 SERVER = 'https://rest.coinapi.io'
 ENDPOINT = '/v1/exchangerate'
-RUTA_API = SERVER + ENDPOINT
 HEADERS = {
     'X-CoinAPI-Key': APIKEY
 }
@@ -171,23 +170,24 @@ class ListaMovimientos:
 
 class CoinApi:
 
-    def __init__(self, ruta):
-        self.ruta = ruta
-
-    def peticion_api(self, from_currency, to_currency, form_quantity):
+    def peticion_api(self, from_currency, to_currency):
         '''
         Consulta CoinApi para obtener "time" y "rate" sobre las monedas pedidas. 
         '''
-        url = self.ruta + '/' + from_currency + '/' + to_currency
+        url = SERVER + ENDPOINT + '/' + from_currency + '/' + to_currency
 
         respuesta = requests.get(url, headers=HEADERS)
 
+        lista_datos = []
+
         if respuesta.status_code == 200:
             datos = respuesta.json()
+            fecha_hora_cadena = datos.get('time', '')
 
+            lista_datos.append(fecha_hora)
             tasa = datos.get('rate', 0)
-            # hora =
+            lista_datos.append(tasa)
         else:
             pass
 
-        cantidad_en_ = form_quantity*tasa
+        return lista_datos
