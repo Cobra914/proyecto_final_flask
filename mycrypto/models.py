@@ -1,5 +1,7 @@
 from datetime import datetime, date, time
 
+import pytz
+
 import requests
 
 import sqlite3
@@ -182,12 +184,36 @@ class CoinApi:
 
         if respuesta.status_code == 200:
             datos = respuesta.json()
-            fecha_hora_cadena = datos.get('time', '')
 
-            lista_datos.append(fecha_hora)
+            fecha_hora_str = datos.get('time', '')
+
+            fecha_hora_obj = datetime.fromisoformat(fecha_hora_str.rstrip('Z'))
+            fecha_hora_obj = fecha_hora_obj.replace(tzinfo=pytz.UTC)
+            fecha_hora_local = fecha_hora_obj.astimezone(
+                pytz.timezone('Europe/Madrid'))
+
+            fecha_obj = fecha_hora_local.date()
+            fecha_iso_str = fecha_obj.isoformat()
+            lista_datos.append(fecha_iso_str)
+
+            hora_obj = fecha_hora_local.time()
+            hora_iso_str = hora_obj.isoformat()
+            lista_datos.append(hora_iso_str)
+
             tasa = datos.get('rate', 0)
             lista_datos.append(tasa)
         else:
-            pass
+            if respuesta.status_code == 401:
+                raise KeyError(
+                    'API key inválida')
+            elif respuesta.status_code == 403:
+                raise PermissionError(
+                    'La API key carece de permisos para obtener la información pedida')
+            elif respuesta.status_code == 429:
+                raise RuntimeError(
+                    'Se ha agotado la cantidad de solicitudes a CoinApi')
+            else:
+                pass
+                # raise ('Error desconocido')
 
         return lista_datos
