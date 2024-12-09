@@ -50,6 +50,9 @@ class DBManager:
 
         return self.registros
 
+    def guardarMovimiento(self, consulta):
+        pass
+
 
 class Movimiento:
 
