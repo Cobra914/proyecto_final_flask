@@ -210,13 +210,16 @@ class CoinApi:
             raise ValueError(
                 'API key inválida')
         elif respuesta.status_code == 403:
-            raise PermissionError(
+            raise MiError(
                 'La API key carece de permisos para obtener la información pedida')
         elif respuesta.status_code == 429:
-            raise RuntimeError(
+            raise MiError(
                 'Se ha agotado la cantidad de solicitudes a CoinApi')
         else:
-            pass
-            # raise ('Error desconocido')
+            raise MiError('Error desconocido')
 
         return lista_datos
+
+
+class MiError(Exception):
+    pass
