@@ -1,3 +1,5 @@
+from mycrypto import app
+
 from datetime import datetime, date, time
 
 import pytz
@@ -7,13 +9,6 @@ import requests
 import sqlite3
 
 RUTA_DB = 'mycrypto/data/movements.db'
-
-APIKEY = '7418c736-092b-42a6-9272-e626a5885fd1'
-SERVER = 'https://rest.coinapi.io'
-ENDPOINT = '/v1/exchangerate'
-HEADERS = {
-    'X-CoinAPI-Key': APIKEY
-}
 
 
 class DBManager:
@@ -177,8 +172,14 @@ class CoinApi:
 
     def peticion_api(self, from_currency, to_currency):
         '''
-        Consulta CoinApi para obtener "time" y "rate" sobre las monedas pedidas. 
+        Consulta CoinApi para obtener "time" y "rate" sobre las monedas pedidas.
         '''
+        SERVER = 'https://rest.coinapi.io'
+        ENDPOINT = '/v1/exchangerate'
+        HEADERS = {
+            'X-CoinAPI-Key': app.config['API_KEY']
+        }
+
         url = SERVER + ENDPOINT + '/' + from_currency + '/' + to_currency
 
         respuesta = requests.get(url, headers=HEADERS)
@@ -205,18 +206,17 @@ class CoinApi:
 
             tasa = datos.get('rate', 0)
             lista_datos.append(tasa)
+        elif respuesta.status_code == 401:
+            raise ValueError(
+                'API key inválida')
+        elif respuesta.status_code == 403:
+            raise PermissionError(
+                'La API key carece de permisos para obtener la información pedida')
+        elif respuesta.status_code == 429:
+            raise RuntimeError(
+                'Se ha agotado la cantidad de solicitudes a CoinApi')
         else:
-            if respuesta.status_code == 401:
-                raise KeyError(
-                    'API key inválida')
-            elif respuesta.status_code == 403:
-                raise PermissionError(
-                    'La API key carece de permisos para obtener la información pedida')
-            elif respuesta.status_code == 429:
-                raise RuntimeError(
-                    'Se ha agotado la cantidad de solicitudes a CoinApi')
-            else:
-                pass
-                # raise ('Error desconocido')
+            pass
+            # raise ('Error desconocido')
 
         return lista_datos
