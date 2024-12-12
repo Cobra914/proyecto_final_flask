@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 
 from wtforms import (DecimalField,
-                     HiddenField,
+                     HiddenField, SelectField,
                      StringField,
                      SubmitField, ValidationError)
 
@@ -12,17 +12,36 @@ lista_monedas = ['EUR', 'BTC', 'ETH', 'USDT',
 
 
 class MovimientoForm(FlaskForm):
-    id = HiddenField()
-    from_currency = StringField('From_currency')
-    to_currency = StringField('To_currency')
-    form_quantity = DecimalField('Form_quantity', validators=[
+    from_currency = SelectField('De', choices=[('EUR', 'EUR'),
+                                               ('BTC', 'BTC'),
+                                               ('ETH', 'ETH'),
+                                               ('USDT', 'USDT'),
+                                               ('ADA', 'ADA'),
+                                               ('SOL', 'SOL'),
+                                               ('XRP', 'XRP'),
+                                               ('DOT', 'DOT'),
+                                               ('DOGE', 'DOGE'),
+                                               ('SHIB', 'SHIB')])
+
+    to_currency = SelectField('A', choices=[('EUR', 'EUR'),
+                                            ('BTC', 'BTC'),
+                                            ('ETH', 'ETH'),
+                                            ('USDT', 'USDT'),
+                                            ('ADA', 'ADA'),
+                                            ('SOL', 'SOL'),
+                                            ('XRP', 'XRP'),
+                                            ('DOT', 'DOT'),
+                                            ('DOGE', 'DOGE'),
+                                            ('SHIB', 'SHIB')])
+
+    form_quantity = DecimalField('C', validators=[
         data_required(
             'Debes escribir una cantidad.'),
         number_range(
             min=0.1, message='No se permiten cantidades inferiores a 10 céntimos.')])
 
-    calculadora = SubmitField('Calculadora')
-    submit = SubmitField('Guardar')
+    # calculadora = SubmitField('calculadora')
+    # submit = SubmitField('guardar')
 
     def validate_from_currency(form, field):
 

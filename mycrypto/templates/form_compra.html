@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ super() }}: Compra
+{% endblock head_title %}
+
+{% block page_title %}
+<h1 class="subtitulo">COMPRA DE CRIPTOS</h1>
+{% endblock page_title %}
+
+{% block contenido %}
+<form action="/purchase" method="POST" novalidate>
+    {{ form.csrf_token }}
+
+    <div>
+        <div class="fila-compra">
+            <div class="cuadro">
+                {{ form.from_currency.label }}: {{ form.from_currency }}
+                <p class="error">
+                    {% if form.from_currency.errors %}
+                    {% for error in form.from_currency.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </p>
+            </div>
+            <div class="cuadro cuadro2">
+                {{ form.to_currency.label }}: {{ form.to_currency }}
+                <p class="error">
+                    {% if form.to_currency.errors %}
+                    {% for error in form.to_currency.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="fila-compra">
+            <div class="cuadro-q">
+                {{ form.form_quantity.label }}: {{ form.form_quantity }}
+                <p class="error">
+                    {% if form.form_quantity.errors %}
+                    {% for error in form.form_quantity.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </p>
+                <button type="submit" name="calculadora">
+                    <img src="/static/icons/calculadora.png" alt="calculadora" width="40" height="40">
+                </button>
+            </div>
+            <div class="cuadro-q">
+                <label for="cantidad-cambio">C:</label>
+                <span class="span-linea">{{ ca }}</span>
+            </div>
+        </div>
+        <div class="fila-compra">
+            <div class="cuadro-pu"></div>
+            <div class="cuadro-pu">
+                <label for="precio-unitario">P.U:</label>
+                <span class="span-linea">{{ pu }}</span>
+            </div>
+        </div>
+        <div class="fila-compra">
+            <div class="cuadro-check pad"></div>
+            <div class="cuadro-check pad">
+                <button type="submit" name="guardar">
+                    <img src="/static/icons/cheque.png" alt="cheque" width="40" height="40">
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock contenido %}
