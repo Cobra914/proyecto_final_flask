@@ -12,7 +12,8 @@ lista_monedas = ['EUR', 'BTC', 'ETH', 'USDT',
 
 
 class MovimientoForm(FlaskForm):
-    from_currency = SelectField('De', choices=[('EUR', 'EUR'),
+    from_currency = SelectField('De', choices=[('', ''),
+                                               ('EUR', 'EUR'),
                                                ('BTC', 'BTC'),
                                                ('ETH', 'ETH'),
                                                ('USDT', 'USDT'),
@@ -23,7 +24,8 @@ class MovimientoForm(FlaskForm):
                                                ('DOGE', 'DOGE'),
                                                ('SHIB', 'SHIB')])
 
-    to_currency = SelectField('A', choices=[('EUR', 'EUR'),
+    to_currency = SelectField('A', choices=[('', ''),
+                                            ('EUR', 'EUR'),
                                             ('BTC', 'BTC'),
                                             ('ETH', 'ETH'),
                                             ('USDT', 'USDT'),
