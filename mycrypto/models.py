@@ -45,8 +45,31 @@ class DBManager:
 
         return self.registros
 
-    def guardarMovimiento(self, consulta):
-        pass
+    def guardarMovimiento(self, movimiento):
+        '''
+        Agrega el movimiento a la lista en la BD.
+        '''
+        conexion = sqlite3.connect(self.ruta)
+        cursor = conexion.cursor()
+        sql = 'INSERT INTO movimientos ("date", "time", "from_currency", "form_quantity", "to_currency", "to_quantity", "unit_price") VALUES (?, ?, ?, ?, ?, ?, ?)'
+
+        try:
+            params = (
+                movimiento.date,
+                movimiento.time,
+                movimiento.from_currency,
+                movimiento.form_quantity,
+                movimiento.to_currency,
+                movimiento.to_quantity,
+                movimiento.unit_price
+            )
+            cursor.execute(sql, params)
+            conexion.commit()
+        except Exception as ex:
+            print(ex)
+            conexion.rollback()
+
+        conexion.close()
 
 
 class Movimiento:
@@ -63,7 +86,7 @@ class Movimiento:
         form_quantity = dict_mov.get('form_quantity', None)
         to_currency = dict_mov.get('to_currency', '')
         to_quantity = dict_mov.get('to_quantity', None)
-        unit_price = dict_mov.get('unit_price')
+        unit_price = dict_mov.get('unit_price', None)
 
         self.id = dict_mov.get('id', None)
 
@@ -135,18 +158,7 @@ class Movimiento:
             msj = f'La cantidad debe ser un número decimal.'
             self.errores.append(msj)
 
-        # self.from_currency = from_currency
-        # self.form_quantity = form_quantity
-        # self.to_currency = to_currency
-        # self.to_quantity = to_quantity
         self.unit_price = unit_price
-
-    @property
-    def obtener_unit_price(self):
-        n1 = float(self.form_quantity)
-        n2 = float(self.to_quantity)
-        resultado = n1/n2
-        return round(resultado, 4)
 
 
 class ListaMovimientos:
