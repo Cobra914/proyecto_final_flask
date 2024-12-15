@@ -90,7 +90,7 @@ class Movimiento:
 
         self.id = dict_mov.get('id', None)
 
-        # Validación hora
+        # Validación fecha
         try:
             self.fecha = date.fromisoformat(fecha)
         except ValueError:
@@ -106,7 +106,7 @@ class Movimiento:
             msj = f'Error desconocido con la fecha.'
             self.errores.append(msj)
 
-        # Validación fecha
+        # Validación hora
         try:
             self.hora = time.fromisoformat(hora)
         except ValueError:
@@ -128,11 +128,11 @@ class Movimiento:
                 self.form_quantity = valor
             else:
                 self.form_quantity = 0
-                msj = f'La cantidad debe ser mayor que cero.'
+                msj = 'La cantidad debe ser mayor que cero.'
                 self.errores.append(msj)
         except ValueError:
             self.form_quantity = 0
-            msj = f'La cantidad debe ser un número decimal.'
+            msj = 'La cantidad debe ser un número entero o decimal positivo.'
             self.errores.append(msj)
 
         # Validación to_currency
@@ -149,16 +149,27 @@ class Movimiento:
             if valor > 0:
                 self.to_quantity = valor
             else:
-                # TODO Se rompe al ingresar un numero negativo
                 self.to_quantity = 0
-                msj = f'La cantidad debe ser mayor que cero.'
+                msj = 'La cantidad debe ser mayor que cero.'
                 self.errores.append(msj)
         except ValueError:
             self.to_quantity = 0
-            msj = f'La cantidad debe ser un número decimal.'
+            msj = 'La cantidad debe ser un número entero o decimal positivo.'
             self.errores.append(msj)
 
-        self.unit_price = unit_price
+        # Validación unit_price
+        try:
+            valor = float(unit_price)
+            if valor > 0:
+                self.unit_price = valor
+            else:
+                self.unit_price = 0
+                msj = 'Error en el cálculo del precio unitario.'
+                self.errores.append(msj)
+        except ValueError:
+            self.unit_price = 0
+            msj = 'La cantidad debe ser un número entero o decimal positivo.'
+            self.errores.append(msj)
 
 
 class ListaMovimientos:
