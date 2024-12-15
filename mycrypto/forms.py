@@ -1,9 +1,8 @@
 from flask_wtf import FlaskForm
 
 from wtforms import (DecimalField,
-                     HiddenField, SelectField,
-                     StringField,
-                     SubmitField, ValidationError)
+                     SelectField,
+                     ValidationError)
 
 from wtforms.validators import data_required, number_range
 
@@ -42,19 +41,17 @@ class MovimientoForm(FlaskForm):
         number_range(
             min=0.1, message='No se permiten cantidades inferiores a 10 céntimos.')])
 
-    # calculadora = SubmitField('calculadora')
-    # submit = SubmitField('guardar')
-
     def validate_from_currency(form, field):
 
         if field.data not in lista_monedas:
             raise ValidationError(
-                'La moneda no existe o no está entre las 10 monedas de la app.')
-        else:
-            pass
+                'Debes escoger una moneda o la moneda no está disponible en la app.')
 
     def validate_to_currency(form, field):
 
         if field.data not in lista_monedas:
             raise ValidationError(
-                'La moneda no existe o no está entre las 10 monedas de la app.')
+                'Debes escoger una moneda o la moneda no está disponible en la app.')
+        elif field.data == form.from_currency.data:
+            raise ValidationError(
+                'No está permitido intercambiar cantidades entre dos mismas monedas.')

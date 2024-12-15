@@ -38,9 +38,14 @@ def purchase():
                 cantidad = float(cantidad)
                 tasa = peticion[2]
                 cantidad_cambio = cantidad*tasa
+
+                cantidad_c_formateada = round(cantidad_cambio, 6)
+
                 precio_unitario = cantidad/cantidad_cambio
 
-                return render_template('form_compra.html', form=formulario, ca=cantidad_cambio, pu=precio_unitario)
+                pu_formateado = "{:.6f}".format(precio_unitario)
+
+                return render_template('form_compra.html', form=formulario, ca=cantidad_c_formateada, pu=pu_formateado)
             else:
                 return render_template('form_compra.html', form=formulario)
         else:
