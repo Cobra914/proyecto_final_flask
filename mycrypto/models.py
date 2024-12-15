@@ -92,26 +92,27 @@ class Movimiento:
 
         # Validación fecha
         try:
-            self.fecha = date.fromisoformat(fecha)
+            self.date = date.fromisoformat(fecha)
         except ValueError:
-            self.fecha = None
+            self.date = None
             msj = f'La fecha {fecha} no es una fecha ISO 8601 válida.'
             self.errores.append(msj)
         except TypeError:
-            self.fecha = None
+            self.date = None
             msj = f'La fecha {fecha} no es una cadena de texto.'
             self.errores.append(msj)
         except:
-            self.fecha = None
+            self.date = None
             msj = f'Error desconocido con la fecha.'
             self.errores.append(msj)
 
         # Validación hora
-        try:
-            self.hora = time.fromisoformat(hora)
-        except ValueError:
-            self.hora = None
-            msj = f'La hora {hora} no es de tipo ISO válida.'
+        self.time = hora
+        # try:
+        # self.time = time.fromisoformat(hora)
+        # except ValueError:
+        # self.time = None
+        # msj = f'La hora {hora} no es de tipo ISO válida.'
 
         # Validación from_currency
         if from_currency not in lista_monedas:
