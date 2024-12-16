@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from flask import render_template, request
 
@@ -52,13 +52,12 @@ def purchase():
                 return render_template('form_compra.html', form=formulario)
         else:
             if formulario.validate():
-                ahora = datetime.datetime.now()
+                ahora = datetime.now()
 
-                fecha = ahora.date()
-                fecha_str = fecha.isoformat()
+                fecha = ahora.date().isoformat()
 
                 hora = ahora.time()
-                hora_str = hora.strftime('%H:%M:%S')
+                hora_format = hora.strftime('%H:%M:%S')
 
                 moneda_origen = request.form.get('from_currency')
                 moneda_destino = request.form.get('to_currency')
@@ -78,8 +77,8 @@ def purchase():
                 pu_formateado = "{:.6f}".format(precio_unitario)
 
                 mov_dict = {
-                    'date': fecha_str,
-                    'time': hora_str,
+                    'date': fecha,
+                    'time': hora_format,
                     'from_currency': moneda_origen,
                     'form_quantity': cantidad,
                     'to_currency': moneda_destino,

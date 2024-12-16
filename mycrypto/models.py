@@ -56,7 +56,7 @@ class DBManager:
         try:
             params = (
                 movimiento.date,
-                movimiento.time,
+                str(movimiento.time),
                 movimiento.from_currency,
                 movimiento.form_quantity,
                 movimiento.to_currency,
@@ -107,12 +107,12 @@ class Movimiento:
             self.errores.append(msj)
 
         # Validación hora
-        self.time = hora
-        # try:
-        # self.time = time.fromisoformat(hora)
-        # except ValueError:
-        # self.time = None
-        # msj = f'La hora {hora} no es de tipo ISO válida.'
+        # self.time = hora
+        try:
+            self.time = time.fromisoformat(hora)
+        except TypeError:
+            self.time = None
+            msj = f'La hora {hora} no es de tipo ISO válida.'
 
         # Validación from_currency
         if from_currency not in lista_monedas:
@@ -162,6 +162,7 @@ class Movimiento:
         try:
             valor = float(unit_price)
             if valor > 0:
+                valor = "{:.6f}".format(valor)
                 self.unit_price = valor
             else:
                 self.unit_price = 0
@@ -171,6 +172,12 @@ class Movimiento:
             self.unit_price = 0
             msj = 'La cantidad debe ser un número entero o decimal positivo.'
             self.errores.append(msj)
+
+    def __str__(self):
+        return f'{self.date} | {self.time} | {self.from_currency} | {self.form_quantity} | {self.to_currency} | {self.to_quantity} | {self.unit_price}'
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class ListaMovimientos:

@@ -24,15 +24,15 @@
     <tr class="fila">
     <tr></tr>
     <td class="dato">
-        {% if m.fecha %}
-        {{ m.fecha }}
+        {% if m.date %}
+        {{ m.date }}
         {% else %}
         ---
         {% endif %}
     </td>
     <td class="dato">
-        {% if m.hora %}
-        {{ m.hora }}
+        {% if m.time %}
+        {{ m.time }}
         {% else %}
         ---
         {% endif %}
@@ -70,7 +70,7 @@
     </td>
     </td>
     <td class="dato">
-        {{ m.obtener_unit_price }} {{ m.from_currency }}
+        {{ m.unit_price }} {{ m.from_currency }}
     </td>
     </tr>
     {% endfor %}
