@@ -107,7 +107,6 @@ class Movimiento:
             self.errores.append(msj)
 
         # Validación hora
-        # self.time = hora
         try:
             self.time = time.fromisoformat(hora)
         except TypeError:
@@ -197,6 +196,25 @@ class ListaMovimientos:
         for dato in datos:
             mov = Movimiento(dato)
             self.movimientos.append(mov)
+
+    def calcular_cantidad_cambio(self, cantidad, tasa):
+        cant = float(cantidad)
+        resultado = cant*tasa
+        return round(resultado, 6)
+
+    def calcular_pu(self, cantidad, cantidad_cambio):
+        cant = float(cantidad)
+        resultado = cant/cantidad_cambio
+        return "{:.6f}".format(resultado)
+
+    def obtener_fecha(self):
+        ahora = datetime.now()
+        return ahora.date().isoformat()
+
+    def obtener_hora(self):
+        ahora = datetime.now()
+        hora = ahora.time()
+        return hora.strftime('%H:%M:%S')
 
 
 class CoinApi:

@@ -21,7 +21,7 @@ class MovimientoForm(FlaskForm):
                                                ('XRP', 'XRP'),
                                                ('DOT', 'DOT'),
                                                ('DOGE', 'DOGE'),
-                                               ('SHIB', 'SHIB')])
+                                               ('SHIB', 'SHIB')], render_kw={'disabled': False})
 
     to_currency = SelectField('A', choices=[('', ''),
                                             ('EUR', 'EUR'),
@@ -33,7 +33,7 @@ class MovimientoForm(FlaskForm):
                                             ('XRP', 'XRP'),
                                             ('DOT', 'DOT'),
                                             ('DOGE', 'DOGE'),
-                                            ('SHIB', 'SHIB')])
+                                            ('SHIB', 'SHIB')], render_kw={'disabled': False})
 
     form_quantity = DecimalField('C', validators=[
         data_required(
