@@ -81,7 +81,7 @@ footer {
     padding-top: 5px;
 }
 
-.boton .boton-edit {
+.boton-edit {
     color: black;
     background-color: white;
 }
@@ -92,22 +92,25 @@ footer {
     padding-top: 50px;
 }
 
-.cuadro {
+.cuadro-m {
     flex: 1;
     text-align: center;
-}
-
-.menu-from {
-    width: 200px;
-}
-
-.menu-to {
-    width: 200px;
 }
 
 .cuadro-q {
     flex: 2;
     text-align: center;
+}
+
+.boton-cal {
+    width: 60px;
+    background-color: white;
+}
+
+.span-linea {
+    display: inline-block;
+    border-bottom: solid 1px black;
+    min-width: 10rem;
 }
 
 .cuadro-pu {
@@ -118,10 +121,15 @@ footer {
 .cuadro-check {
     flex: 2;
     text-align: center;
+    padding-left: 350px;
 }
 
 .pad {
     padding-bottom: 70px;
+}
+
+.boton-check {
+    background-color: white;
 }
 
 .boton-volver {
@@ -147,14 +155,7 @@ footer {
     text-align: center;
 }
 
-
 .va {
     padding-top: 30px;
     padding-bottom: 30px;
-}
-
-.span-linea {
-    display: inline-block;
-    border-bottom: solid 1px black;
-    min-width: 10rem;
 }

@@ -14,7 +14,7 @@
 
     <div>
         <div class="fila-compra">
-            <div class="cuadro">
+            <div class="cuadro-m">
                 {{ form.from_currency.label }}: {{ form.from_currency }}
                 <p class="error">
                     {% if form.from_currency.errors %}
@@ -24,7 +24,7 @@
                     {% endif %}
                 </p>
             </div>
-            <div class="cuadro cuadro2">
+            <div class="cuadro-m">
                 {{ form.to_currency.label }}: {{ form.to_currency }}
                 <p class="error">
                     {% if form.to_currency.errors %}
@@ -45,7 +45,7 @@
                     {% endfor %}
                     {% endif %}
                 </p>
-                <button type="submit" name="calculadora">
+                <button class="boton-cal" type="submit" name="calculadora">
                     <img src="/static/icons/calculadora.png" alt="calculadora" width="40" height="40">
                 </button>
             </div>
@@ -64,7 +64,7 @@
         <div class="fila-compra">
             <div class="cuadro-check pad"></div>
             <div class="cuadro-check pad">
-                <button type="submit" name="guardar">
+                <button class="boton-check" type="submit" name="guardar">
                     <img src="/static/icons/cheque.png" alt="cheque" width="40" height="40">
                 </button>
             </div>
