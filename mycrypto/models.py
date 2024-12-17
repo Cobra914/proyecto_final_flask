@@ -207,11 +207,11 @@ class ListaMovimientos:
         resultado = cant/cantidad_cambio
         return "{:.6f}".format(resultado)
 
-    def obtener_fecha(self):
+    def obtener_fecha_sis(self):
         ahora = datetime.now()
         return ahora.date().isoformat()
 
-    def obtener_hora(self):
+    def obtener_hora_sis(self):
         ahora = datetime.now()
         hora = ahora.time()
         return hora.strftime('%H:%M:%S')

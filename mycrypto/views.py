@@ -55,9 +55,9 @@ def purchase():
                 moneda_destino = request.form.get('to_currency')
                 cantidad = request.form.get('form_quantity')
 
-                fecha = lista.obtener_fecha()
+                fecha = lista.obtener_fecha_sis()
 
-                hora = lista.obtener_hora()
+                hora = lista.obtener_hora_sis()
 
                 coin_api = CoinApi()
                 peticion = coin_api.peticion_api(moneda_origen, moneda_destino)
