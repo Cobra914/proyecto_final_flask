@@ -44,7 +44,7 @@ def purchase():
 
                 return render_template('form_compra.html', form=formulario,
                                        ca=cantidad_cambio,
-                                       pu=precio_unitario)
+                                       pu=precio_unitario, blockControl=True)
             else:
                 return render_template('form_compra.html', form=formulario)
         else:

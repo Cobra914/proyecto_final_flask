@@ -15,7 +15,13 @@
     <div>
         <div class="fila-compra">
             <div class="cuadro-m">
-                {{ form.from_currency.label }}: {{ form.from_currency }}
+                {{ form.from_currency.label }}:
+                {% if not blockControl %}
+                {{ form.from_currency }}
+                {% else %}
+                <input type="hidden" name="from_currency" value="{{form.from_currency.data}}">
+                {{ form.from_currency.data }}
+                {% endif %}
                 <p class="error">
                     {% if form.from_currency.errors %}
                     {% for error in form.from_currency.errors %}
