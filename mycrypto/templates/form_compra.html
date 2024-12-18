@@ -44,6 +44,9 @@
         <div class="fila-compra">
             <div class="cuadro-q">
                 {{ form.form_quantity.label }}: {{ form.form_quantity }}
+                <button class="boton-cal" type="submit" name="calculadora">
+                    <img src="/static/icons/calculadora.png" alt="calculadora" width="40" height="40">
+                </button>
                 <p class="error">
                     {% if form.form_quantity.errors %}
                     {% for error in form.form_quantity.errors %}
@@ -51,9 +54,6 @@
                     {% endfor %}
                     {% endif %}
                 </p>
-                <button class="boton-cal" type="submit" name="calculadora">
-                    <img src="/static/icons/calculadora.png" alt="calculadora" width="40" height="40">
-                </button>
             </div>
             <div class="cuadro-q">
                 <label for="cantidad-cambio">C:</label>
