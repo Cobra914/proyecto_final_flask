@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from flask import render_template, request
 
 from mycrypto.forms import MovimientoForm
@@ -26,9 +24,6 @@ def purchase():
 
         if 'calculadora' in request.form:
             if formulario.validate():
-                # formulario.from_currency.render_kw['disabled'] = True
-                # formulario.to_currency.render_kw['disabled'] = True
-
                 moneda_origen = request.form.get('from_currency')
                 moneda_destino = request.form.get('to_currency')
                 cantidad = request.form.get('form_quantity')
@@ -49,8 +44,6 @@ def purchase():
                 return render_template('form_compra.html', form=formulario)
         else:
             if formulario.validate():
-                # formulario.from_currency.render_kw['disabled'] = True
-                # formulario.to_currency.render_kw['disabled'] = True
                 moneda_origen = request.form.get('from_currency')
                 moneda_destino = request.form.get('to_currency')
                 cantidad = request.form.get('form_quantity')

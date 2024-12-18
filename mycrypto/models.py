@@ -1,6 +1,6 @@
-from mycrypto import app
-
 from datetime import datetime, date, time
+
+from mycrypto import app
 
 import pytz
 
@@ -20,6 +20,9 @@ class DBManager:
         self.ruta = ruta
 
     def consultarSQL(self, consulta):
+        '''
+        Gestiona la consulta SQL.
+        '''
         conexion = sqlite3.connect(self.ruta)
         cursor = conexion.cursor()
 
@@ -73,6 +76,9 @@ class DBManager:
 
 
 class Movimiento:
+    '''
+    Clase encargada de crear el movimiento y validar cada uno de sus datos.
+    '''
 
     def __init__(self, dict_mov):
 
@@ -180,6 +186,9 @@ class Movimiento:
 
 
 class ListaMovimientos:
+    '''
+    Clase encargada de interactuar con la lista de movimientos y sus datos.
+    '''
 
     def __init__(self):
         try:
@@ -218,6 +227,9 @@ class ListaMovimientos:
 
 
 class CoinApi:
+    '''
+    Clase creada específicamente para interactuar con API de CoinApi.
+    '''
 
     def peticion_api(self, from_currency, to_currency):
         '''
@@ -271,4 +283,7 @@ class CoinApi:
 
 
 class MiError(Exception):
+    '''
+    Clase creada para lanzar errores personalizados.
+    '''
     pass
